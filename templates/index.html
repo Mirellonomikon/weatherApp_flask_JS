@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>fratello_app</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="../static/assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+</head>
+
+<body style="background: #fff2e9;">
+    <header style="border-style: none;border-bottom-style: double;border-bottom-color: var(--bs-blue);background: var(--bs-gray-800);">
+        <h2 class="flex-grow-1" style="font-family: Audiowide, serif;text-align: left;border-style: none;color: var(--bs-cyan);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-brightness-high flex-grow-1 flex-shrink-1" style="color: var(--bs-orange);margin-right: 27px;margin-left: 23px;">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+            </svg><span style="background-color: rgba(255, 255, 255, 0);">Weather App</span></h2>
+    </header>
+    <nav class="navbar navbar-light navbar-expand-sm">
+        <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item" style="position: relative;"><input type="text" id="search_bar" style="/*width: 469px;*/padding-left: 0px;padding-bottom: 5px;padding-right: 0px;padding-top: 0px;height: 30px;position: relative;"><button class="btn btn-primary" id="search_btn" type="button" style="margin-left: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                            </svg></button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="weather_tabs" style="position: relative;">
+        <ul class="nav nav-tabs" role="tablist" style="border-bottom: 4px dashed var(--bs-gray-800);">
+            <li class="nav-item" role="presentation" style="border-color: var(--bs-nav-tabs-link-active-color);"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#current_weather" style="border-top-style: none;border-right-style: none;border-left-style: none;height: 40px;">Now</a></li>
+            <li class="nav-item" role="presentation" style="border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#hour_weather" style="border-style: none;">12-Hour</a></li>
+            <li class="nav-item" role="presentation" style="border-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;border-left-style: none;"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#day_weather" style="border-style: none;border-right-style: none;">5-Day</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade" role="tabpanel" id="current_weather">
+                <div class="card card-day" style="margin-top: 5px;border-style: none;">
+                    <div class="card-body" style="border-style: none;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 id="weather_location">Clooj</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 id="temp_cur" style="width: 185px;">
+                                        <picture><img id="weather_icon" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>20 C
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="text-muted mb-2" id="weather_description" style="width: 174px;">Rainy</h6>
+                                    <p id="feels_like">Feels like 20 C</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="rain_probability">Rain: 20%</p>
+                                    <p>UV:&nbsp;</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="wind_speed">Wind speed: 10 km/h</p>
+                                    <p id="wind_direction">Wind direction: NE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" role="tabpanel" id="hour_weather">
+                <div class="card">
+                    <div class="card-body" style="height: 66.3906px;margin-top: -5px;">
+                        <h2 id="weather_location-1">Clooj</h2>
+                    </div>
+                </div>
+                <div class="card" id="hourly_card" style="margin-top: 5px;border-style: none;">
+                    <div class="card-body" style="border-style: none;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 id="hour_index">00:00</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 id="temp_cur-1" style="width: 185px;">
+                                        <picture><img id="weather_icon-1" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>20 C
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="text-muted mb-2" id="weather_description-1" style="width: 174px;">Rainy</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="rain_probability-1">Rain: 20%</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="wind_speed-1">Wind speed: 10 km/h</p>
+                                    <p id="wind_direction-1">Wind direction: NE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade show active" role="tabpanel" id="day_weather">
+                <div class="card">
+                    <div class="card-body" style="height: 66.3906px;margin-top: -5px;">
+                        <h2 id="weather_location-2">Clooj</h2>
+                    </div>
+                </div>
+                <div class="card card-day" id="day_card" style="margin-top: 5px;border-style: none;">
+                    <div class="card-body" style="border-style: none;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 id="day_index">June 1st</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 id="max_temp" style="width: 185px;">
+                                        <picture><img id="weather_icon-2" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>20 C
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="text-muted" id="weather_description_day" style="width: 174px;">Rainy</h6>
+                                    <p id="min_weather">Min 10 C</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="rain_probability_day">Rain: 20%</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="wind_speed_day">Wind speed: 10 km/h</p>
+                                    <p id="wind_direction_day">Wind direction: NE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-night" id="night_card" style="margin-top: 5px;border-style: none;">
+                    <div class="card-body" style="border-style: none;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 id="moon_phase" style="width: 410px;">
+                                        <picture><img id="weather_icon-3" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>Full Moon
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="text-muted mb-2" id="weather_description_night" style="width: 174px;">Rainy</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="rain_probability_day_night">Rain: 20%</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p id="wind_speed_night">Wind speed: 10 km/h</p>
+                                    <p id="wind_direction_night">Wind direction: NE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

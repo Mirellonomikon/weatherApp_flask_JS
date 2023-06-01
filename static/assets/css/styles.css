@@ -1,0 +1,71 @@
+@media (min-width: 1200px) {
+  #search_bar {
+    width: 533px;
+  }
+}
+
+@media (min-width: 576px) {
+  #weather_tabs {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #weather_tabs {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #weather_tabs {
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #weather_tabs {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+}
+
+@media (min-width: 576px) {
+  #search_bar {
+    width: 245px;
+  }
+}
+
+@media (min-width: 768px) {
+  #search_bar {
+    width: 384px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #weather_tabs {
+    padding-left: 400px;
+    padding-right: 400px;
+  }
+}
+
+.card-day {
+  background-color: #fff;
+  color: rgb(73, 80, 87);
+}
+
+.card-night {
+  background: #17174a;
+  color: var(--bs-teal);
+}
+
+.card-night h5 {
+  color: #fff;
+}
+
+.card-day h5 {
+  color: var(--bs-primary);
+}
+

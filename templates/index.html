@@ -24,7 +24,7 @@
         <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item" style="position: relative;"><input type="text" id="search_bar" placeholder="Enter city..." style="/*width: 469px;*/padding-left: 0px;padding-bottom: 5px;padding-right: 0px;padding-top: 0px;height: 30px;position: relative;"><button class="btn btn-primary" id="search_btn" type="button" style="margin-left: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
+                    <li class="nav-item" style="position: relative;"><input type="text" id="search_bar" placeholder="Enter city..." style="/*width: 469px;*/padding-left: 0px;padding-bottom: 5px;padding-right: 0px;padding-top: 0px;height: 30px;position: relative;"><button class="btn btn-primary" id="search_button" onclick="fetchLocation()" type="button" style="margin-left: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg></button></li>
                 </ul>
@@ -174,9 +174,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='assets/js/location.js') }}"></script>
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script src="{{ url_for('static', filename='assets/js/weather_socket.js') }}"></script>
+    <script src="../static/assets/js/location.js"></script>
+    <script src="../static/assets/js/update_weather_current.js"></script>
     <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

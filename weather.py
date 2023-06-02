@@ -2,7 +2,7 @@ import requests
 
 from utilities import _kph_to_mph, _celsius_to_fahrenheit, get_temperature_unit, get_rain_prob_unit, get_wind_speed_unit
 
-API_KEY = 'kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa'  # rezerva XRlhSG2XcseQbpGXgICBqilMG56Adc7g ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
+API_KEY = 'XRlhSG2XcseQbpGXgICBqilMG56Adc7g'  # rezerva kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
 # daca mai ai nevoie de un api key iti faci cont pe accuweather api si generezi cheie
 DEFAULT_UNIT_SYSTEM = 'metric'  # 'metric' for Celsius, 'imperial' for Fahrenheit
 
@@ -58,8 +58,8 @@ def get_5day_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
             weather_data.append({
                 'Date': date,
                 'Location': location,
-                'Max Temperature': max_temp_day,
-                'Min Temperature': min_temp_day,
+                'Max Temperature': round(max_temp_day),
+                'Min Temperature': round(min_temp_day),
                 'Rain Probability (Day)': rain_probability_day,
                 'Wind Speed (Day)': wind_speed_day,
                 'Wind Direction (Day)': wind_direction_day,
@@ -105,12 +105,12 @@ def get_current_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM)
 
         current_weather_data = {
             'Location': location,
-            'Temperature': temperature,
+            'Temperature': round(temperature),
             'Rain Probability': rain_probability,
             'UV Index': uv_index,
             'Wind Speed': round(wind_speed, 2),
             'Wind Direction': wind_direction,
-            'Feels Like': round(feels_like, 2),
+            'Feels Like': round(feels_like),
             'Weather Description': weather_description,
             'Weather Icon': weather_icon,
             'Is Daylight': is_daylight,
@@ -149,7 +149,7 @@ def get_12hour_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
             weather_data.append({
                 'Timestamp': timestamp,
                 'Location': location,
-                'Temperature': temperature,
+                'Temperature': round(temperature),
                 'Rain Probability': rain_probability,
                 'Wind Speed': round(wind_speed, 2),
                 'Wind Direction': wind_direction,

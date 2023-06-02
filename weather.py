@@ -20,7 +20,7 @@ def get_location_key(location):
     return None
 
 
-def get_5day_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
+def get_5day_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
     if location_key is None:
         print('Location not found.')
         return []
@@ -57,6 +57,7 @@ def get_5day_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
 
             weather_data.append({
                 'Date': date,
+                'Location': location,
                 'Max Temperature': max_temp_day,
                 'Min Temperature': min_temp_day,
                 'Rain Probability (Day)': rain_probability_day,
@@ -75,7 +76,7 @@ def get_5day_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
         return weather_data
 
 
-def get_current_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
+def get_current_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
     if location_key is None:
         print('Location not found.')
         return None
@@ -103,6 +104,7 @@ def get_current_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
             wind_speed = _kph_to_mph(wind_speed)
 
         current_weather_data = {
+            'Location': location,
             'Temperature': temperature,
             'Rain Probability': rain_probability,
             'UV Index': uv_index,
@@ -117,7 +119,7 @@ def get_current_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
         return current_weather_data
 
 
-def get_12hour_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
+def get_12hour_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
     if location_key is None:
         print('Location not found.')
         return []
@@ -146,6 +148,7 @@ def get_12hour_weather(location_key, unit_system=DEFAULT_UNIT_SYSTEM):
 
             weather_data.append({
                 'Timestamp': timestamp,
+                'Location': location,
                 'Temperature': temperature,
                 'Rain Probability': rain_probability,
                 'Wind Speed': round(wind_speed, 2),
@@ -209,11 +212,11 @@ def print_12hour_weather_data(weather_data, unit_system=DEFAULT_UNIT_SYSTEM):
 # location_key = get_location_key(location)
 # unit_system = 'metric'  # 'metric' or 'imperial' to switch between Celsius and Fahrenheit
 
-# current_data = get_current_weather(location_key, unit_system)
+# current_data = get_current_weather(location_key, location, unit_system)
 # print_current_weather_data(current_data, unit_system)
 
-# five_day_data = get_5day_weather(location_key, unit_system)
+# five_day_data = get_5day_weather(location_key,location, unit_system)
 # print_five_weather_data(five_day_data, unit_system)
 
-# twelve_hour_data = get_12hour_weather(location_key, unit_system)
+# twelve_hour_data = get_12hour_weather(location_key, location, unit_system)
 # print_12hour_weather_data(twelve_hour_data, unit_system)

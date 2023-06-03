@@ -1,13 +1,24 @@
 // This function will be called when the search button is clicked
 function fetchLocation() {
-    // Fetch the location from the search bar
     var location = document.getElementById("search_bar").value;
-
-    // Save the location in localStorage to be used by other scripts
     localStorage.setItem("location", location);
 
-    // Fetch the new weather data
-    fetchWeatherDataCurrent();
+    fetch('/get_location_key', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ location: location }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem("location_key", data.location_key);
+        fetchWeatherDataCurrent();
+        fetchWeatherData5Day();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
 
 // Attach fetchLocation function to the search button's click event

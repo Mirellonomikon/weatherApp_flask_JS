@@ -2,7 +2,7 @@ import requests
 
 from utilities import _kph_to_mph, _celsius_to_fahrenheit, get_temperature_unit, get_rain_prob_unit, get_wind_speed_unit
 
-API_KEY = 'XRlhSG2XcseQbpGXgICBqilMG56Adc7g'  # rezerva kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
+API_KEY = '5VgGAxvU7bySG4JZUYZtmlfYgjOFCmRc'  # rezerva kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa XRlhSG2XcseQbpGXgICBqilMG56Adc7g  ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
 # daca mai ai nevoie de un api key iti faci cont pe accuweather api si generezi cheie
 DEFAULT_UNIT_SYSTEM = 'metric'  # 'metric' for Celsius, 'imperial' for Fahrenheit
 

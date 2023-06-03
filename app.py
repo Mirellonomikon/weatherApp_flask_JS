@@ -12,14 +12,32 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/update_weather', methods=['POST'])
-def update_weather():
+@app.route('/get_location_key', methods=['POST'])
+def get_location_key():
     location = request.json.get('location')
     location_key = weather.get_location_key(location)
+    return jsonify({'location_key': location_key})
+
+
+@app.route('/update_current_weather', methods=['POST'])
+def update_current():
+    location = request.json.get('location')
+    location_key = request.json.get('location_key')
     weather_data = weather.get_current_weather(location_key, location)
     return jsonify(weather_data)
 
 
+@app.route('/update_5day_weather', methods=['POST'])
+def update_5day_weather():
+    location = request.json.get('location')
+    location_key = request.json.get('location_key')
+    weather_data = weather.get_5day_weather(location_key, location)
+    return jsonify(weather_data)
+
+
+
+
+
 if __name__ == '__main__':
-    location = 'London'
+    location = 'Constanta'
     app.run()

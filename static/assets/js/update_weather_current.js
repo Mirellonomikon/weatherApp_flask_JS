@@ -1,13 +1,16 @@
 function fetchWeatherDataCurrent() {
     let location = localStorage.getItem('location');
-    if (location) {
-        fetch('/update_weather', {
+    let locationKey = localStorage.getItem('location_key');
+
+    if (location && locationKey) {
+        fetch('/update_current_weather', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                location: location
+                location: location,
+                location_key: locationKey
             })
         })
         .then(response => response.json())
@@ -26,7 +29,7 @@ function fetchWeatherDataCurrent() {
             let weather_card = document.getElementById('current_weather_card');
 
             // Check if daylight is 1 or 0 and apply the corresponding class
-            if (data['Is Daylight'] === 1) {
+            if (data['Is Daylight'] === true) {
                 weather_card.classList.remove('card-night');
                 weather_card.classList.add('card-day');
             } else {

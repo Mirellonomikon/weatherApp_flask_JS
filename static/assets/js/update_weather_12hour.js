@@ -41,7 +41,7 @@ function fetchWeatherData12Hour() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id="temp_cur-${index}" style="width: 185px;">
-                                        <picture><img id="weather_icon-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>${forecast['Temperature']}°C
+                                        ${forecast['Temperature']}°C
                                     </h2>
                                 </div>
                             </div>

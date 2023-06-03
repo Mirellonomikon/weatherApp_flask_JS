@@ -40,7 +40,7 @@ function fetchWeatherData5Day() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id="max_temp-${index}">
-                                        <picture><img id="weather_icon-2-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;" src="icon_url/${forecast['Weather Icon (Day)']}"></picture>${forecast['Max Temperature']}°C
+                                        ${forecast['Max Temperature']}°C
                                     </h2>
                                 </div>
                             </div>
@@ -71,13 +71,13 @@ function fetchWeatherData5Day() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h5 id="moon_phase-${index}">
-                                        <picture><img id="weather_icon-3-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;" src="icon_url/${forecast['Weather Icon (Night)']}"></picture>${forecast['Moon Phase']}
+                                        ${forecast['Moon Phase']} Moon
                                     </h5>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h6 class="text-muted mb-2" id="weather_description_night-${index}" style="width: 174px;">${forecast['Weather Description (Night)']} Moon</h6>
+                                    <h6 class="text-muted mb-2" id="weather_description_night-${index}" style="width: 174px;">${forecast['Weather Description (Night)']}</h6>
                                 </div>
                                 <div class="col-md-4">
                                     <p id="rain_probability_day_night-${index}">Rain: ${forecast['Rain Probability (Night)']}%</p>

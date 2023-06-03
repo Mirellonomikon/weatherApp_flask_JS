@@ -25,15 +25,6 @@ function fetchWeatherDataCurrent() {
             document.getElementById('uv').textContent = "UV: " + data['UV Index'];
             document.getElementById('wind_speed').textContent = "Wind speed: " + data['Wind Speed'] + " km/h";
             document.getElementById('wind_direction').textContent = "Wind direction: " + data['Wind Direction'];
-            // Fetch the AccuWeather icons JSON data
-        fetch('accuweather_icons.json')
-        .then(response => response.json())
-        .then(iconData => {
-            // Assuming your data includes a 'Weather Icon' field with a number that corresponds to the keys in your icons JSON
-            let weatherIconCode = data['Weather Icon'];
-            let iconUrl = iconData[weatherIconCode];
-            document.getElementById('weather_icon').src = iconUrl;
-    });
 
             // Select the card
             let weather_card = document.getElementById('current_weather_card');

@@ -21,6 +21,7 @@ function fetchWeatherData5Day() {
             // Create a new location card
             let locationCard = document.createElement('div');
             locationCard.classList.add('card');
+            locationCard.style.marginBottom = "10px";
             locationCard.innerHTML = `<div class="card-body" style="height: 66.3906px;margin-top: -5px;"><h2 id="weather_location-2">${location}</h2></div>`;
             weatherPane.appendChild(locationCard);
 
@@ -39,14 +40,14 @@ function fetchWeatherData5Day() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id="max_temp-${index}">
-                                        <picture><img id="weather_icon-2-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;" src="icon_url/${forecast['Weather Icon (Day)']}"></picture>${forecast['Max Temperature']} C
+                                        <picture><img id="weather_icon-2-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;" src="icon_url/${forecast['Weather Icon (Day)']}"></picture>${forecast['Max Temperature']}°C
                                     </h2>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <h6 class="text-muted" id="weather_description_day-${index}" style="width: 174px;">${forecast['Weather Description (Day)']}</h6>
-                                    <p id="min_weather-${index}">Min ${forecast['Min Temperature']} C</p>
+                                    <p id="min_weather-${index}">Min ${forecast['Min Temperature']}°C</p>
                                 </div>
                                 <div class="col-md-4">
                                     <p id="rain_probability_day-${index}">Rain: ${forecast['Rain Probability (Day)']}%</p>

@@ -21,6 +21,7 @@ function fetchWeatherData12Hour() {
             weatherPane.innerHTML = '';
             let locationCard = document.createElement('div');
             locationCard.classList.add('card');
+            locationCard.style.marginBottom = "10px";
             locationCard.innerHTML = `<div class="card-body" style="height: 66.3906px;margin-top: -5px;"><h2 id="weather_location-2">${location}</h2></div>`;
             weatherPane.appendChild(locationCard);
 
@@ -40,7 +41,7 @@ function fetchWeatherData12Hour() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id="temp_cur-${index}" style="width: 185px;">
-                                        <picture><img id="weather_icon-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>${forecast['Temperature']} C
+                                        <picture><img id="weather_icon-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>${forecast['Temperature']}°C
                                     </h2>
                                 </div>
                             </div>
@@ -72,8 +73,4 @@ fetchWeatherData12Hour();
 let now = new Date();
 let minutesUntilNextHour = 60 - now.getMinutes();
 
-// Set a timeout to wait until the start of next hour
-setTimeout(() => {
-    // Then set it to call the function every hour
-    setInterval(fetchWeatherData12Hour, 60 * 60 * 1000);
-}, minutesUntilNextHour * 60 * 1000);
+setInterval(fetchWeatherData12Hour, minutesUntilNextHour * 60 * 1000);

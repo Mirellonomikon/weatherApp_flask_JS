@@ -179,6 +179,11 @@
     <script src="../static/assets/js/update_weather_5day.js"></script>
     <script src="../static/assets/js/update_weather_12hour.js"></script>
     <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    window.addEventListener('beforeunload', function(event) {
+        localStorage.clear();
+    });
+</script>
 </body>
 
 </html>

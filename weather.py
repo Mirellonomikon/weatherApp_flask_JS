@@ -1,8 +1,8 @@
 import requests
-
+from datetime import datetime
 from utilities import _kph_to_mph, _celsius_to_fahrenheit, get_temperature_unit, get_rain_prob_unit, get_wind_speed_unit
 
-API_KEY = 'TNbMqRisyjPAkURpKQWZVaVN04WayfsP'  # rezerva kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa XRlhSG2XcseQbpGXgICBqilMG56Adc7g 5VgGAxvU7bySG4JZUYZtmlfYgjOFCmRc ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
+API_KEY = 'XRlhSG2XcseQbpGXgICBqilMG56Adc7g'  # rezerva TNbMqRisyjPAkURpKQWZVaVN04WayfsP kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa  5VgGAxvU7bySG4JZUYZtmlfYgjOFCmRc ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
 # daca mai ai nevoie de un api key iti faci cont pe accuweather api si generezi cheie
 DEFAULT_UNIT_SYSTEM = 'metric'  # 'metric' for Celsius, 'imperial' for Fahrenheit
 
@@ -34,7 +34,10 @@ def get_5day_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
         daily_forecasts = data['DailyForecasts']
         weather_data = []
         for forecast in daily_forecasts:
-            date = forecast['Date']
+            # Parse the datetime string and convert it to the format you need
+            timestamp = datetime.strptime(forecast['Date'], '%Y-%m-%dT%H:%M:%S%z')
+            formatted_date = timestamp.strftime('%B %d')
+
             min_temp_day = forecast['Temperature']['Minimum']['Value']
             max_temp_day = forecast['Temperature']['Maximum']['Value']
             moon_phase = forecast['Moon']['Phase']
@@ -56,7 +59,7 @@ def get_5day_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
                 wind_speed_night = _kph_to_mph(wind_speed_night)
 
             weather_data.append({
-                'Date': date,
+                'Date': formatted_date,
                 'Location': location,
                 'Max Temperature': round(max_temp_day),
                 'Min Temperature': round(min_temp_day),
@@ -133,7 +136,10 @@ def get_12hour_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
         hourly_forecasts = data
         weather_data = []
         for forecast in hourly_forecasts:
-            timestamp = forecast['DateTime']
+            # Parse the datetime string and convert it to the format you need
+            timestamp = datetime.strptime(forecast['DateTime'], '%Y-%m-%dT%H:%M:%S%z')
+            formatted_timestamp = timestamp.strftime('%H:%M')
+
             temperature = forecast['Temperature']['Value']
             rain_probability = forecast['RainProbability']
             wind_speed = forecast['Wind']['Speed']['Value']
@@ -147,7 +153,7 @@ def get_12hour_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
                 wind_speed = _kph_to_mph(wind_speed)
 
             weather_data.append({
-                'Timestamp': timestamp,
+                'Timestamp': formatted_timestamp,
                 'Location': location,
                 'Temperature': round(temperature),
                 'Rain Probability': rain_probability,

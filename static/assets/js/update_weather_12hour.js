@@ -1,9 +1,3 @@
-let iconUrls;
-
-fetch('static/accuweather_icons.json')
-.then(response => response.json())
-.then(data => iconUrls = data);
-
 function fetchWeatherData12Hour() {
     let location = localStorage.getItem('location');
     let locationKey = localStorage.getItem('location_key');
@@ -27,7 +21,6 @@ function fetchWeatherData12Hour() {
             weatherPane.innerHTML = '';
             let locationCard = document.createElement('div');
             locationCard.classList.add('card');
-            locationCard.style.marginBottom = "10px";
             locationCard.innerHTML = `<div class="card-body" style="height: 66.3906px;margin-top: -5px;"><h2 id="weather_location-2">${location}</h2></div>`;
             weatherPane.appendChild(locationCard);
 
@@ -36,7 +29,6 @@ function fetchWeatherData12Hour() {
                 let hourlyCard = document.createElement('div');
                 hourlyCard.classList.add('card');
                 hourlyCard.classList.add(forecast['Is Daylight'] ? 'card-day' : 'card-night');
-                hourlyCard.style.marginBottom = "10px";
                 hourlyCard.innerHTML = `
                     <div class="card-body" style="border-style: none;">
                         <div class="container">
@@ -48,7 +40,7 @@ function fetchWeatherData12Hour() {
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id="temp_cur-${index}" style="width: 185px;">
-                                        <picture><img id="weather_icon-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>${forecast['Temperature']}°C
+                                        <picture><img id="weather_icon-${index}" style="height: 55px;width: 70px;margin-left: 0px;margin-right: 22px;"></picture>${forecast['Temperature']} C
                                     </h2>
                                 </div>
                             </div>
@@ -73,8 +65,8 @@ function fetchWeatherData12Hour() {
     }
 }
 
-// // Call the function once when the script loads
-// fetchWeatherData12Hour();
+// Call the function once when the script loads
+fetchWeatherData12Hour();
 
 // Calculate minutes until next hour
 let now = new Date();

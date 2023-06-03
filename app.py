@@ -7,11 +7,6 @@ CORS(app)  # this line enables CORS
 app.config['SECRET_KEY'] = 'your-secret-key'
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
 @app.route('/get_location_key', methods=['POST'])
 def get_location_key():
     location = request.json.get('location')
@@ -20,7 +15,7 @@ def get_location_key():
 
 
 @app.route('/update_current_weather', methods=['POST'])
-def update_current():
+def update_current_weather():
     location = request.json.get('location')
     location_key = request.json.get('location_key')
     weather_data = weather.get_current_weather(location_key, location)
@@ -37,12 +32,16 @@ def update_5day_weather():
 
 @app.route('/update_12hour_weather', methods=['POST'])
 def update_12hour_weather():
-    location = request.json.get('location')
-    location_key = request.json.get('location_key')
+    location = request.json['location']
+    location_key = request.json['location_key']
     weather_data = weather.get_12hour_weather(location_key, location)
     return jsonify(weather_data)
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 if __name__ == '__main__':
-    location = 'Constanta'
     app.run()

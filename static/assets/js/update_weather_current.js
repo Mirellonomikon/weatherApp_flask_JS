@@ -40,8 +40,8 @@ function fetchWeatherDataCurrent() {
     }
 }
 
-// // Call the function once when the script loads
-// fetchWeatherDataCurrent();
+// Call the function once when the script loads
+fetchWeatherDataCurrent();
 
 // Then set it to call the function every 5 minutes
 setInterval(fetchWeatherDataCurrent, 5 * 60 * 1000);

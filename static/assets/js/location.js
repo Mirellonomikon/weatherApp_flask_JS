@@ -1,4 +1,3 @@
-// This function will be called when the search button is clicked
 function fetchLocation() {
     var location = document.getElementById("search_bar").value;
     localStorage.setItem("location", location);

@@ -77,7 +77,7 @@ function fetchWeatherData5Day() {
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h6 class="text-muted mb-2" id="weather_description_night-${index}" style="width: 174px;">${forecast['Weather Description (Night)']}</h6>
+                                    <h6 class="text-muted mb-2" id="weather_description_night-${index}" style="width: 174px;">${forecast['Weather Description (Night)']} Moon</h6>
                                 </div>
                                 <div class="col-md-4">
                                     <p id="rain_probability_day_night-${index}">Rain: ${forecast['Rain Probability (Night)']}%</p>
@@ -92,6 +92,12 @@ function fetchWeatherData5Day() {
                 `;
                 weatherPane.appendChild(nightCard);
             });
+        })
+        .finally(() => {
+            // Calculate minutes until next hour and schedule next fetch
+            let now = new Date();
+            let minutesUntilNextHour = 60 - now.getMinutes();
+            setTimeout(fetchWeatherData5Day, minutesUntilNextHour * 60 * 1000);
         });
     }
 }
@@ -99,6 +105,3 @@ function fetchWeatherData5Day() {
 
 // Call the function once when the script loads
 fetchWeatherData5Day();
-
-// Then set it to call the function every 60 minutes
-setInterval(fetchWeatherData5Day, 60 * 60 * 1000);

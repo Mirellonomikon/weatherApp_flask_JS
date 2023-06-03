@@ -62,15 +62,15 @@ function fetchWeatherData12Hour() {
                 `;
                 weatherPane.appendChild(hourlyCard);
             });
+        })
+        .finally(() => {
+            // Calculate minutes until next hour and schedule next fetch
+            let now = new Date();
+            let minutesUntilNextHour = 60 - now.getMinutes();
+            setTimeout(fetchWeatherData12Hour, minutesUntilNextHour * 60 * 1000);
         });
     }
 }
 
 // Call the function once when the script loads
 fetchWeatherData12Hour();
-
-// Calculate minutes until next hour
-let now = new Date();
-let minutesUntilNextHour = 60 - now.getMinutes();
-
-setInterval(fetchWeatherData12Hour, minutesUntilNextHour * 60 * 1000);

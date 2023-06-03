@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 from utilities import _kph_to_mph, _celsius_to_fahrenheit, get_temperature_unit, get_rain_prob_unit, get_wind_speed_unit
 
-API_KEY = 'XRlhSG2XcseQbpGXgICBqilMG56Adc7g'  # rezerva TNbMqRisyjPAkURpKQWZVaVN04WayfsP kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa  5VgGAxvU7bySG4JZUYZtmlfYgjOFCmRc ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
+API_KEY = 'kvZYgaZHLBVqI6XTqWQLa8Zqih7Ahvxa'  # rezerva XRlhSG2XcseQbpGXgICBqilMG56Adc7g TNbMqRisyjPAkURpKQWZVaVN04WayfsP  5VgGAxvU7bySG4JZUYZtmlfYgjOFCmRc ai 50 de calluri pe ZI iar daca schimbi locatia se pun 2 calluri
 # daca mai ai nevoie de un api key iti faci cont pe accuweather api si generezi cheie
 DEFAULT_UNIT_SYSTEM = 'metric'  # 'metric' for Celsius, 'imperial' for Fahrenheit
 
@@ -138,7 +138,7 @@ def get_12hour_weather(location_key, location, unit_system=DEFAULT_UNIT_SYSTEM):
         for forecast in hourly_forecasts:
             # Parse the datetime string and convert it to the format you need
             timestamp = datetime.strptime(forecast['DateTime'], '%Y-%m-%dT%H:%M:%S%z')
-            formatted_timestamp = timestamp.strftime('%H:%M')
+            formatted_timestamp = timestamp.strftime('%H:%M %Z')
 
             temperature = forecast['Temperature']['Value']
             rain_probability = forecast['RainProbability']

@@ -35,7 +35,12 @@ def update_5day_weather():
     return jsonify(weather_data)
 
 
-
+@app.route('/update_12hour_weather', methods=['POST'])
+def update_12hour_weather():
+    location = request.json.get('location')
+    location_key = request.json.get('location_key')
+    weather_data = weather.get_12hour_weather(location_key, location)
+    return jsonify(weather_data)
 
 
 if __name__ == '__main__':

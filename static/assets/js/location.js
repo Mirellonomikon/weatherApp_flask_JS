@@ -15,6 +15,7 @@ function fetchLocation() {
         localStorage.setItem("location_key", data.location_key);
         fetchWeatherDataCurrent();
         fetchWeatherData5Day();
+        fetchWeatherData12Hour();
     })
     .catch((error) => {
         console.error('Error:', error);

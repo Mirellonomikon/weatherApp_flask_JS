@@ -21,13 +21,15 @@ function fetchWeatherData5Day() {
             weatherPane.innerHTML = '';
             let locationCard = document.createElement('div');
             locationCard.classList.add('card');
-            locationCard.innerHTML = `<div class="card-body" style="height: 66.3906px;margin-top: -5px;margin-bottom: 10px;"><h2 id="weather_location-2">${location}</h2></div>`;
+            locationCard.style.marginBottom = "10px";
+            locationCard.innerHTML = `<div class="card-body" style="height: 66.3906px;margin-top: -5px;"><h2 id="weather_location-2">${location}</h2></div>`;
             weatherPane.appendChild(locationCard);
 
             data.forEach((forecast, index) => {
                 // Create a new day card
                 let dayCard = document.createElement('div');
                 dayCard.classList.add('card', 'card-day');
+                dayCard.style.marginBottom = "10px";
                 dayCard.innerHTML = `
                     <div class="card-body">
                         <div class="container">
@@ -64,6 +66,7 @@ function fetchWeatherData5Day() {
                 // Create a new night card
                 let nightCard = document.createElement('div');
                 nightCard.classList.add('card', 'card-night');
+                nightCard.style.marginBottom = "10px";
                 nightCard.innerHTML = `
                     <div class="card-body">
                         <div class="container">
@@ -95,8 +98,8 @@ function fetchWeatherData5Day() {
     }
 }
 
-// Call the function once when the script loads
-fetchWeatherData5Day();
+// // Call the function once when the script loads
+// fetchWeatherData5Day();
 
 // Then set it to call the function every 60 minutes
 setInterval(fetchWeatherData5Day, 60 * 60 * 1000);

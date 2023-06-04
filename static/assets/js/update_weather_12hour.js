@@ -66,7 +66,7 @@ function fetchWeatherData12Hour() {
         .finally(() => {
             // Calculate minutes until next hour and schedule next fetch
             let now = new Date();
-            let minutesUntilNextHour = 60 - now.getMinutes();
+            let minutesUntilNextHour = (70 - now.getMinutes()) % 60;
             setTimeout(fetchWeatherData12Hour, minutesUntilNextHour * 60 * 1000);
         });
     }

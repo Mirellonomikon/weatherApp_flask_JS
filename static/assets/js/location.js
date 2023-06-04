@@ -15,6 +15,9 @@ function fetchLocation() {
         fetchWeatherDataCurrent();
         fetchWeatherData5Day();
         fetchWeatherData12Hour();
+
+        // Show the weather tabs after fetching data
+        document.getElementById("weather_tabs").style.display = "block";
     })
     .catch((error) => {
         console.error('Error:', error);

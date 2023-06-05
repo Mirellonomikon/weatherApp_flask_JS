@@ -101,7 +101,3 @@ function fetchWeatherData5Day() {
         });
     }
 }
-
-
-// Call the function once when the script loads
-fetchWeatherData5Day();

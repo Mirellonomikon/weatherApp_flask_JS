@@ -16,7 +16,6 @@ function fetchWeatherDataCurrent() {
         })
         .then(response => response.json())
         .then(data => {
-            // Update the fields in your HTML here
             document.getElementById('weather_location').textContent = data['Location'];
             document.getElementById('temp_cur').textContent = data['Temperature'] + "°C";
             document.getElementById('weather_description').textContent = data['Weather Description'];
